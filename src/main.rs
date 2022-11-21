@@ -8,11 +8,13 @@ use home::home_dir;
 use std::fs::read_to_string;
 use std::path::PathBuf;
 use std::process::exit;
+use dotenv::dotenv;
 
 const SESSION_COOKIE_FILE: &str = ".adventofcode.session";
 const DEFAULT_COL_WIDTH: usize = 80;
 
 fn main() -> Result<(), String> {
+    dotenv().ok();
     let args = Args::parse();
 
     let session = read_session_cookie(args.session);

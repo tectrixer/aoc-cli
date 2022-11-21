@@ -67,8 +67,11 @@ fn puzzle_year_day(
     opt_year: Option<PuzzleYear>,
     opt_day: Option<PuzzleDay>,
 ) -> Result<(PuzzleYear, PuzzleDay), String> {
-    let year = opt_year.unwrap_or_else(latest_event_year);
+    let year = opt_year
+        .or_else(|| dotenv::var("YEAR").map(|x| x.parse::<i32>().unwrap()).ok())
+        .unwrap_or_else(latest_event_year);
     let day = opt_day
+        .or_else(|| dotenv::var("DAY").map(|x| x.parse::<u32>().unwrap()).ok())
         .or_else(|| current_event_day(year))
         .ok_or_else(|| format!("Could not infer puzzle day for {}.", year))?;
 
@@ -107,6 +110,12 @@ pub fn download_input(
 ) -> Result<(), String> {
     let (year, day) = puzzle_year_day(opt_year, opt_day)?;
 
+    let file = if filename == "dayX.txt" {
+        format!("day{day}.txt")
+    } else {
+        filename.to_string()
+    };
+
     eprintln!("Downloading input for day {}, {}...", day, year);
     let url = format!("https://adventofcode.com/{}/day/{}/input", year, day);
     let content_type = "text/plain";
@@ -120,8 +129,8 @@ pub fn download_input(
     eprintln!("Saving puzzle input to \"{}\"...", filename);
     OpenOptions::new()
         .write(true)
-        .create_new(true)
-        .open(filename)
+        .create(true)
+        .open(file)
         .map_err(|err| format!("Failed to create file: {}", err))?
         .write(puzzle_input.as_bytes())
         .map_err(|err| format!("Failed to write to file: {}", err))?;
