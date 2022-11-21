@@ -126,7 +126,7 @@ pub fn download_input(
         .and_then(|response| response.text())
         .map_err(|err| err.to_string())?;
 
-    eprintln!("Saving puzzle input to \"{}\"...", filename);
+    eprintln!("Saving puzzle input to \"{}\"...", file);
     OpenOptions::new()
         .write(true)
         .create(true)
