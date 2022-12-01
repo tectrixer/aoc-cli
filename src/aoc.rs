@@ -98,6 +98,7 @@ fn build_client(
     Client::builder()
         .default_headers(headers)
         .redirect(Policy::none())
+        .user_agent("Github: tectrixer/aoc-cli")
         .build()
         .map_err(|err| err.to_string())
 }
