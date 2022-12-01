@@ -1,9 +1,6 @@
 # aoc-cli
 
-[![Build and test](https://github.com/scarvalhojr/aoc-cli/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/scarvalhojr/aoc-cli/actions/workflows/build-and-test.yml)
-[![Clippy and format](https://github.com/scarvalhojr/aoc-cli/actions/workflows/clippy-and-fmt.yml/badge.svg)](https://github.com/scarvalhojr/aoc-cli/actions/workflows/clippy-and-fmt.yml)
-[![Release](https://github.com/scarvalhojr/aoc-cli/actions/workflows/release.yml/badge.svg)](https://github.com/scarvalhojr/aoc-cli/actions/workflows/release.yml)
-[![crates.io](https://img.shields.io/crates/v/aoc-cli.svg)](https://crates.io/crates/aoc-cli)
+Forked from [scarvalhojr](https://github.com/scarvalhojr).
 
 [Advent of Code](https://adventofcode.com) command-line tool.
 
@@ -19,7 +16,7 @@ and check if they are correct, all from the comfort of your terminal.
   Code event.
 - Load Advent of Code session cookie from a file.
 
-## Installation options
+## Installation
 
 ### Compile from source
 
@@ -34,45 +31,12 @@ requires OpenSSL libraries and headers for compiling it. On Linux, you need
 to install a package with OpenSSL development headers such as `libssl-dev` or
 `openssl-devel`.
 
-- Install `aoc-cli` with cargo:
+- Install `aoc-cli`:
+
 ```
+# git clone https://github.com/tectrixer/aoc-cli
 # cargo install aoc-cli
 ```
-
-### Windows Package Manager
-
-On Windows 10 and 11, use the
-[Windows Package Manager](https://learn.microsoft.com/en-us/windows/package-manager/winget/)
-command line tool:
-
-```
-# winget install aoc-cli
-```
-
-### Download release artifacts
-
-Executables for selected platforms are available in
-[GitHub releases](https://github.com/scarvalhojr/aoc-cli/releases). Simply
-download and extract the file. An installer is also available for Windows.
-
-The Linux package is statically-linked with
-OpenSSL and [musl C library](https://www.musl-libc.org/), and it should just
-work on most Linux distributions.
-
-The macOS and Windows packages should
-automatically detect installed OpenSSL libraries. The MSVC Windows packages
-require the redistributable Visual C++ runtime library, whereas the MinGW
-packages require the [Minimalist GNU for Windows](https://osdn.net/projects/mingw/)
-runtime libraries.
-
-* x86 64-bit Linux - `aoc-cli-<version>-x86_64-unknown-linux-musl.tar.gz`
-* x86 64-bit macOS (10.7 or newer) - `aoc-cli-<version>-x86_64-apple-darwin.tar.gz`
-* x86 64-bit Windows installer - `aoc-cli-<version>-x86_64.msi`
-* x86 64-bit Windows MSVC (Windows 7 or newer) - `aoc-cli-<version>-x86_64-pc-windows-msvc.zip`
-* x86 64-bit Windows MinGW (Windows 7 or newer) - `aoc-cli-<version>-x86_64-pc-windows-gnu.zip`
-* i686 32-bit Windows MSVC (Windows 7 or newer) - `aoc-cli-<version>-i686-pc-windows-msvc.zip`
-* i686 32-bit Windows MinGW (Windows 7 or newer) - `aoc-cli-<version>-i686-pc-windows-gnu.zip`
-
 ## Session cookie
 
 Different Advent of Code users get different puzzle input. To download your
