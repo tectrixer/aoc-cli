@@ -34,8 +34,8 @@ to install a package with OpenSSL development headers such as `libssl-dev` or
 - Install `aoc-cli`:
 
 ```
-# git clone https://github.com/tectrixer/aoc-cli
-# cargo install aoc-cli
+git clone https://github.com/tectrixer/aoc-cli
+cargo install --path .
 ```
 ## Session cookie
 
